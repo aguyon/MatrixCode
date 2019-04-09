@@ -1,7 +1,42 @@
 import React, { Component } from "react";
 
 const chars = [
-    '0', '1'
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z',
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9'
 ]
 
 
@@ -15,17 +50,19 @@ class Cell extends Component {
         return chars[Math.floor(Math.random() * chars.length)];
     }
 
-    showRandomly() {
-        if (this.props.primary || Math.random() > 0.2) {
-            this.makeSymbolDynamic();
-        }
-    }
-
-    makeSymbolDynamic() {
+    /*makeSymbolDynamic() {
         setInterval(() => {
             this.setState({ char: this.getRandomChar() });
         }, 1000);
     }
+
+     componentWillMount() {
+         if (this.props.primary || Math.random() > .95) {
+            this.makeSymbolDynamic();
+         }
+     }*/
+
+
 
     render() {
         return (
