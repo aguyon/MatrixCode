@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-
-import Symbol from './component/Symbol';
-// import Code from './component/Code';
-// import Matrix from './component/Matrix';
+import Matrice from './Matrix';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Symbol />
+      <div className="App">
+        <header className="App-header">
+          <Matrice />
+        </header>
       </div>
     );
   }

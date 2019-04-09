@@ -19,20 +19,16 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Matrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100vw;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.symbol {
-  font-size: 20px;
-  color: green;
+.Col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
 }
