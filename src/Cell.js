@@ -1,76 +1,35 @@
 import React, { Component } from "react";
 
-const chars = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9'
-]
-
 
 class Cell extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { char: this.getRandomChar() };
+  constructor(props, context) {
+    super(props, context);
+    this.char = String.fromCharCode(Math.floor(Math.random() * 1000 + 192));
+    this.style = {
+      lineHeight: "normal",
+      fontFamily: "Noto Sans",
+      color: "green"
+    };
+    this.opacity = 0;
+  }
+
+  render() {
+    const { isActive } = this.props;
+    if (isActive) {
+      this.style.color = "#fff";
+      this.opacity = 1;
+      this.char = String.fromCharCode(Math.floor(Math.random() * 1000 + 192));
+    } else {
+      this.style.color = "#4cc42b";
+      if (this.opacity > 0) this.opacity -= 0.1;
     }
 
-    getRandomChar() {
-        return chars[Math.floor(Math.random() * chars.length)];
-    }
-
-    /*makeSymbolDynamic() {
-        setInterval(() => {
-            this.setState({ char: this.getRandomChar() });
-        }, 1000);
-    }
-
-     componentWillMount() {
-         if (this.props.primary || Math.random() > .95) {
-            this.makeSymbolDynamic();
-         }
-     }*/
-
-
-
-    render() {
-        return (
-            <div>
-                {this.state.char}
-            </div>
-        );
-    }
+    return (
+      <span style={{ ...this.style, filter: "opacity(" + this.opacity + ")" }}>
+        {this.char}
+      </span>
+    );
+  }
 }
 
 export default Cell;
